@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>seed box software</title>
+	
+	<%= stylesheet_link_tag "screen" %>	
+	<%= javascript_include_tag "prototype", "effects", "controls", "application" %>
+ 
+</head>
+
+<body>
+
+<div id="container">
+	<a id="controls" href="/"><span>home</span></a>
+	
+  <div id="content">
+		<%= yield -%>
+	</div>
+</div>
+
+</body>
+</html>
