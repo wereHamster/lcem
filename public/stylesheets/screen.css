@@ -23,6 +23,10 @@ body {
 	font-weight: bold;
 }
 
+#header a {
+	font-size: 14px;
+}
+
 #content {
 }
 

@@ -33,7 +33,7 @@
 		</tr>
 		<tr><td>Geschlecht:</td><td>Jahrgang:</td></tr><tr>
 			<td><%= f.select(:geschlecht, options_for_select(Athlete::SEX, @athlet.geschlecht)) %></td>
-			<td><%= f.select(:jahrgang, (1990..2000).to_a) %></td>
+			<td><%= f.select(:jahrgang, (eval @meeting.jahrgang).to_a) %></td>
 		</tr>
 	</table>
 
