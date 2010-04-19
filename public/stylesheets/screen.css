@@ -1,128 +1,88 @@
 
-* {
-	margin: 0;
-	padding: 0;
-}
-
 body {
-	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size:18px;
-  font-weight:100;
-    
-	background:url(/assets/images/background.png);
-	color:#91a1bb;
-	
-	overflow-x: auto; overflow-y: auto;
-	letter-spacing:1px;
+	font: 0.71em/1.5em Verdana,sans-serif;
+	color: #111;
 }
 
-h1, h2 {
-  text-shadow:#9BADCE 0 0 15px;
-}
-
-a {
-  text-decoration:none;
-  color:#91a1bb;
-  outline:0;
-  
-  -webkit-transition:color 0.5s;
-  
-  text-shadow:#9BADCE 0 0 25px;
-  -webkit-transition:.5s text-shadow;
-}
-
-a:hover {
-  color:#fff;
-  text-shadow:#fff 0 0 25px;
-}
-
-#global {
-  position:relative;
-  top:70px;
-  width:960px;
-  margin:0 auto;
-}
-
-#back {
-  width:960px;
-  margin:0 auto;
-  background:#000 url(/assets/images/texture.png);
-  opacity:0.7;
-  position:absolute;
-  left:0;
-  right:0;
-  top:0;
-  bottom:0;
-  
-  -webkit-box-shadow:#000 0 2px 10px;
-  -moz-box-shadow:#000 0 2px 10px;
-  
-  -webkit-border-radius:10px;
-  -moz-border-radius:10px
+#root {
+	position: relative;
+	padding: 0;
+	width: 550px;
+	margin: 0 auto;
 }
 
 #container {
-  position:relative;
-  padding: 20px 60px 40px 60px;
-  min-height:400px;
-}
-
-#controls {
-  overflow:hidden;
-  position:absolute;
-  right:0;top:0;
-  width:304px;
-  height:173px;
-  background:url(/assets/images/controls.png) no-repeat;
-}
-
-#controls span {
-  display:none;
+	margin: 5px 0 5px 0;
+	text-align: left;
+	min-height:200px;
 }
 
 #header {
-  font-size:18px;
-  font-weight:500;
-  line-height:46px;
+	padding-top: 12px;
+	font-size: 200%;
+	font-weight: bold;
 }
 
-#header a {
-  display:inline-block;
-  
-  border:2px solid #333;
-  background:#111;
-  opacity:0.7;
-
-  -webkit-box-shadow:#000 0 2px 10px;
-  -moz-box-shadow:#000 0 2px 10px;
-    
-  -webkit-border-radius:10px;
-  -moz-border-radius:10px;
-  
-  margin-right:20px;
-  padding:0 25px;
-  color:#7c96bf;
-  
-  text-shadow:#9BADCE 0 0 25px;
-  outline:0;
-  -webkit-transition:.5s text-shadow;
+#content {
 }
 
-#header a:hover {
-  color:#fff;
-  text-shadow:#fff 0 0 25px;
+#footer { 
+	text-align: center;
+	padding: 5px;
 }
 
-.break {
-  width:649px;
-  height:2px;
-  background:url(/assets/images/break.png) no-repeat;
-  margin:35px auto;
+#footer p {
+	margin: 0;
 }
+
+form {
+	margin: 0;
+	padding: 10px;
+	text-align: left;
+}
+
+select {
+	width: 100%;
+}
+
+#submit-button {
+	text-align: center;
+}
+
+#submit input[type=submit] {
+	margin: 20px auto 10px auto;
+	width: 30%;
+	font-size: 160%;
+}
+
+th, td {
+	margin: 0;
+	padding: 0 0 0 20px;
+	text-align: left;
+}
+
+table {
+	width: 100%;
+	padding: 10px;
+	margin: 10px;
+}
+
+
+#error {
+	background: #fbb;
+	font-size: 120%;
+	font-weight: bold;
+	border: 3px solid #f00;
+	padding: 10px;
+}
+
+a {
+	color: green;
+}
+
 
 .meeting {
-	font-size:22px;
-	font-weight:200;
+	font-size:16px;
 }
 
 .meeting .date {
@@ -130,76 +90,13 @@ a:hover {
 	width:160px;
 }
 
-form {
-	width:100%;
-	margin:0 auto;
-}
-
-input[type=text] {
-	padding:3px;
-	margin:3px;
-	font-size:16px;
-	width:300px;
-}
-
-input[type=submit] {
-	padding:3px;
-	margin:3px;
-	font-size:16px;
-	width:300px;
-}
-
-.classy{height:36px;padding:0 5px 0 0;margin-left:10px;font-family:helvetica,arial,freesans,clean,sans-serif;font-weight:bold;font-size:12px;color:#333;text-shadow:1px 1px 0 #fff;white-space:nowrap;border:none;overflow:visible;background:url(/assets/images/bigbutton_matrix.gif) 100% 0 no-repeat #ddd;cursor:pointer;}
-
-select {
-	padding:3px;
-	margin:3px;
-	font-size:16px;
-	width:310px;
-}
-
-.section {
-	padding:20px;
-	font-size:13px;
-}
-
-.section h3 {
-	width:140px;
-	font-size:22px;
-	font-weight:200;
-	float:left;
-}
-
-.section .part {
-	margin-left:140px;
-}
-
-.section .part label {
-	padding:2px;
-}
-
-.submit {
-	padding:20px;
-}
-form p {
-	width:500px;
-}
-
-input[type=submit] {
-	float:right;
-}
-
 .error {
+	padding:20px 0;
 	text-align:center;
-	font-size:22px;
-	font-weight:200;
+	border: 2px solid #c00;
 }
 
 .fieldWithErrors {
-	display:inline;
-}
-
-.fieldWithErrors input {
-	background-color:#c00;
-	border-color:#c00;
+	background:#c00;
+	padding:2px;
 }

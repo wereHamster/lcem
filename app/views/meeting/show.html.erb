@@ -1,48 +1,57 @@
+<p><%=l @meeting.datum, :format => "%A %e. %B %Y, ab %H:%M Uhr" -%></p>
 
-<%- form_for @athlete, :url => { :action => :register } do |f| -%>
-
-<%- if not @athlete.errors.empty? -%>
- <div class="error">Sie haben das Formular unvollständig ausgefüllt</div>
-<%- end -%>
-
-<div class="section">
-	<h3>Benötigt</h3>
-	<div class="part">
-		<div>
-			<%= text_field_ext(f, "Nachname", :name) -%>
-			<%= text_field_ext(f, "Vorname", :surname) -%>
-		</div>
-		<div>
-			<%= text_field_ext(f, "Strasse", :street) -%>
-			<%= text_field_ext(f, "PLZ / Ort", :city) -%>
-		</div>
-		<div>
-			<%= f.select(:age_group, ["Jahrgang"]+(1990..2000).to_a) %>
-			<%= f.select(:sex, options_for_select({ "Geschlecht" => -1,
-				"Knabe" => Athlete::SEX.index(:male), "Mädchen" => Athlete::SEX.index(:female)}, -1)) %>
-		</div>
-	</div>
+<div id="banner">
+	<img src="/assets/images/<%= @meeting.banner -%>" style="width:100%" />
 </div>
 
-<div class="section">
-	<h3>Optional</h3>
-	<div class="part">
-		<div>
-			<%= text_field_ext(f, "Verein", :club) -%>
-			<%= text_field_ext(f, "Lizenz", :license) -%>
-		</div>
-	</div>
-	
-</div>
+<p><%= @meeting.info -%></p>
 
-<div class="submit">
+<%- form_for @athlet, :url => { :action => :register } do |f| -%>
+
+	<h2>Obligatorische Felder</h2>
+
+	Bitte füllen sie das Formular vollständig und korrekt aus.
+	<%- if false and not @athlet.errors.empty? -%>
+		<span style="color:red">
+			Ich versuche es noch einmal, diesmal in rot, hoffentlich liest es jemand dann: vollständig und korrekt.
+			Beachten sie dass Namen in der deutschen Sprache
+			immer noch gross geschrieben werden, auch im Internet! Die 'Umschalt' Taste ist links und rechts
+			auf ihrer Tastatur. Benutzen sie die ab und zu. Und schreiben sie sowohl die Postleitzahl wie auch den
+			Ortsnamen hin. Ich weise sie darauf hin
+			dass Postleitzahlen in der Schweiz vierstellig sind.
+		</span>
+	<%- end -%>
+
+	<table>
+		<tr><td>Vorname:</td><td>Nachname:</td></tr><tr>
+			<td><%= text_field_ext(f, @athlet, :vorname) -%></td>
+			<td><%= text_field_ext(f, @athlet, :nachname) -%></td>
+		</tr>
+		<tr><td>Strasse / Nr:</td><td>PLZ / Ort:</td></tr><tr>
+			<td><%= text_field_ext(f, @athlet, :strasse) -%></td>
+			<td><%= text_field_ext(f, @athlet, :gemeinde) -%></td>
+		</tr>
+		<tr><td>Geschlecht:</td><td>Jahrgang:</td></tr><tr>
+			<td><%= f.select(:geschlecht, options_for_select(Athlete::SEX, @athlet.geschlecht)) %></td>
+			<td><%= f.select(:jahrgang, (1990..2000).to_a) %></td>
+		</tr>
+	</table>
+
+
+	<h2>Optionale Felder</h2>
+
+	    Wenn die Lizenznummer angegeben wird,
+	    werden die Resultate in der SLV Bestenliste berücksichtigt.
+			<table>
+			     <tr><td>Lizenznummer:</td><td>Verein:</td></tr><tr>
+			      <td><%= text_field_ext(f, @athlet, :lizenz) -%></td>
+			      <td><%= text_field_ext(f, @athlet, :verein) -%></td>
+			     </tr>
+			    </table>
+			
+<div id="submit-button">
 	<%= submit_tag 'Anmelden', :class => :classy %>
-	<p>
-		Wenn die Lizenznummer angegeben wird, werden die Resultate in der SLV Bestenliste
-		berücksichtigt.
-	</p>
 </div>
-
 
 
 <%- end -%>

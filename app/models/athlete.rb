@@ -3,22 +3,33 @@ class Athlete < ActiveRecord::Base
 
 	belongs_to :meeting
 	
-	validates_exclusion_of :name, :in => %w( Nachname )
-	validates_exclusion_of :surname, :in => %w( Vorname )
-	validates_exclusion_of :street, :in => %w( Strasse )
-	validates_exclusion_of :city, :in => ["PLZ / Ort"]
-	validates_exclusion_of :age_group, :in => %w( Jahrgang )
-	validates_exclusion_of :sex, :in => %w( -1 )
+	validates_presence_of :vorname, :nachname, :strasse, :gemeinde
+	validates_numericality_of :jahrgang, :geschlecht
 	
+#	validates_format_of :vorname, :nachname, :strasse, :with => /^[A-Z]/,
+#	  :message => "ist ein Nomen und die werden in der deutschen Sprache immer noch gross geschrieben. Auch im Internet."
 
-	SEX = [:male, :female]
+  validates_format_of :gemeinde, :with => /^\d{4}\s+(\/\s+)?\w+/,
+	  :message => "ist in einem mir unbekannten Format."
 
-	def sex
-		SEX[read_attribute(:sex) || 0]
+  before_save :capitalize_fields
+       
+	SEX = [:Knabe, :Mädchen]
+
+	def geschlecht
+		read_attribute(:geschlecht) and SEX[read_attribute(:geschlecht)]
 	end
 
-	def sex=(value)
-		write_attribute(:sex, SEX.index(value))
+	def geschlecht=(value)
+		write_attribute(:geschlecht, SEX.index(value.intern))
 	end
+
+  private
+
+  def capitalize_fields
+    [:vorname, :nachname, :strasse, :gemeinde].each { |field|
+      self[field] = self[field].gsub(/\b\w/) { $&.upcase }
+    }
+  end
 
 end

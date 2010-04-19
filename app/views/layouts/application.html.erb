@@ -2,28 +2,26 @@
 
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>seed box software</title>
-	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>LC Emmenstrand Meetings</title>
+
 	<%= stylesheet_link_tag "screen" %>	
 	<%= javascript_include_tag "prototype", "effects", "controls", "application" %>
- 
+
 </head>
 
 <body>
-<div id="global">
-	<div id="back"></div>
-	<div id="container">		
+	<div id="root">
 		<div id="header">
-			<h1><%= @title || "LC Emmenstrand Meetings" -%> </h1>
+			<%= @title || "LC Emmenstrand Meetings" -%>
+			<a style="float:right" href="/">Hauptseite</a>
 		</div>
-
-		<div class="break"></div>
-	
-  	<div id="content">
+		<div id="container">
 			<%= yield -%>
 		</div>
+		<div id="footer">
+			<p>Bei Fragen oder Korrekturen wenden sie sich an <a href="mailto:tom@dbservice.com">Tomas Carnecky</a></p>
+		</div>
 	</div>
-</div>
 </body>
 </html>

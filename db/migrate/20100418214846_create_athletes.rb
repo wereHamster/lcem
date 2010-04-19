@@ -1,15 +1,9 @@
 class CreateAthletes < ActiveRecord::Migration
   def self.up
     create_table :athletes do |t|
-      t.string :name
-      t.string :surname
-      t.integer :age_group
-      t.string :club
-      t.string :street
-      t.string :city
-			t.integer :postal_code
-      t.integer :sex
-      t.string :license
+      t.string :vorname, :nachname, :strasse, :gemeinde
+			t.integer :jahrgang, :geschlecht
+      t.string :verein, :lizenz
 
 			t.references :meeting
 

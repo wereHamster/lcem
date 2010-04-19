@@ -12,15 +12,14 @@
 ActiveRecord::Schema.define(:version => 20100418214846) do
 
   create_table "athletes", :force => true do |t|
-    t.string   "name"
-    t.string   "surname"
-    t.integer  "age_group"
-    t.string   "club"
-    t.string   "street"
-    t.string   "city"
-    t.integer  "postal_code"
-    t.integer  "sex"
-    t.string   "license"
+    t.string   "vorname"
+    t.string   "nachname"
+    t.string   "strasse"
+    t.string   "gemeinde"
+    t.integer  "jahrgang"
+    t.integer  "geschlecht"
+    t.string   "verein"
+    t.string   "lizenz"
     t.integer  "meeting_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -28,7 +27,11 @@ ActiveRecord::Schema.define(:version => 20100418214846) do
 
   create_table "meetings", :force => true do |t|
     t.string   "name"
-    t.datetime "date"
+    t.string   "ort"
+    t.string   "gps"
+    t.string   "banner"
+    t.datetime "datum"
+    t.text     "info"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

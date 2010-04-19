@@ -4,16 +4,24 @@ class MeetingController < ApplicationController
 	def show
 	  @meeting = Meeting.find(params[:id])
 	  @title = @meeting.name
-	  @athlete = Athlete.new
+	  @athlet = Athlete.new
 	end
 
   def register
-    @athlete = Athlete.create(params[:athlete])
-    return render :action => :show if @athlete.invalid?
+    @meeting = Meeting.find(params[:id])
+    @title = @meeting.name
+    
+    @athlet = Athlete.create(params[:athlete])
+    @athlet.errors.each{|e,o| puts e; puts o}
+    return render :action => :show if @athlet.invalid?
+    
+    @athlet.meeting = @meeting
+    @athlet.save!
   end
 
   def export
     @meeting = Meeting.find(params[:id])
+    @title = @meeting.name
   end
 
 end
