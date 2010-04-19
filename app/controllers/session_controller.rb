@@ -2,7 +2,7 @@
 class SessionController < ApplicationController
 
 	def index
-	  @meetings = Meeting.all
+	  @meetings = Meeting.all(:order => :datum)
 	end
 
 	def login
