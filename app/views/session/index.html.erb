@@ -1,0 +1,7 @@
+
+<%- for m in @meetings do -%>
+<div class="meeting">
+	<div class="date"><%= "#{m.date.day}. #{m.date.month}. #{m.date.year}" -%></div>
+	<%= link_to m.name, :controller => :meeting, :id => m.id -%>
+</div>
+<%- end -%>

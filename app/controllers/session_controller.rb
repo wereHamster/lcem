@@ -2,6 +2,7 @@
 class SessionController < ApplicationController
 
 	def index
+	  @meetings = Meeting.all
 	end
 
 	def login

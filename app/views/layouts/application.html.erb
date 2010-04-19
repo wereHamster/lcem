@@ -11,14 +11,19 @@
 </head>
 
 <body>
+<div id="global">
+	<div id="back"></div>
+	<div id="container">		
+		<div id="header">
+			<h1><%= @title || "LC Emmenstrand Meetings" -%> </h1>
+		</div>
 
-<div id="container">
-	<a id="controls" href="/"><span>home</span></a>
+		<div class="break"></div>
 	
-  <div id="content">
-		<%= yield -%>
+  	<div id="content">
+			<%= yield -%>
+		</div>
 	</div>
 </div>
-
 </body>
 </html>

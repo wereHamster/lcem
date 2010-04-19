@@ -1,0 +1,48 @@
+
+<%- form_for @athlete, :url => { :action => :register } do |f| -%>
+
+<%- if not @athlete.errors.empty? -%>
+ <div class="error">Sie haben das Formular unvollständig ausgefüllt</div>
+<%- end -%>
+
+<div class="section">
+	<h3>Benötigt</h3>
+	<div class="part">
+		<div>
+			<%= text_field_ext(f, "Nachname", :name) -%>
+			<%= text_field_ext(f, "Vorname", :surname) -%>
+		</div>
+		<div>
+			<%= text_field_ext(f, "Strasse", :street) -%>
+			<%= text_field_ext(f, "PLZ / Ort", :city) -%>
+		</div>
+		<div>
+			<%= f.select(:age_group, ["Jahrgang"]+(1990..2000).to_a) %>
+			<%= f.select(:sex, options_for_select({ "Geschlecht" => -1,
+				"Knabe" => Athlete::SEX.index(:male), "Mädchen" => Athlete::SEX.index(:female)}, -1)) %>
+		</div>
+	</div>
+</div>
+
+<div class="section">
+	<h3>Optional</h3>
+	<div class="part">
+		<div>
+			<%= text_field_ext(f, "Verein", :club) -%>
+			<%= text_field_ext(f, "Lizenz", :license) -%>
+		</div>
+	</div>
+	
+</div>
+
+<div class="submit">
+	<%= submit_tag 'Anmelden', :class => :classy %>
+	<p>
+		Wenn die Lizenznummer angegeben wird, werden die Resultate in der SLV Bestenliste
+		berücksichtigt.
+	</p>
+</div>
+
+
+
+<%- end -%>

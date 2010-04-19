@@ -3,12 +3,13 @@ class CreateAthletes < ActiveRecord::Migration
     create_table :athletes do |t|
       t.string :name
       t.string :surname
-      t.datetime :dob
+      t.integer :age_group
       t.string :club
       t.string :street
       t.string :city
-			t.integer :zipcode
+			t.integer :postal_code
       t.integer :sex
+      t.string :license
 
 			t.references :meeting
 
