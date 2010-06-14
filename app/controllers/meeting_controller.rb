@@ -24,4 +24,18 @@ class MeetingController < ApplicationController
     @title = @meeting.name
   end
 
+  def edit
+    @meeting = Meeting.find(params[:id])
+  end
+
+  def update
+    @meeting = Meeting.find(params[:id])
+
+    if @meeting.update_attributes(params[:meeting])
+      redirect_to(@meeting)
+    else
+      render :action => "edit"
+    end
+  end
+
 end
