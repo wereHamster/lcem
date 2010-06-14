@@ -1,6 +1,6 @@
 
 class Meeting < ActiveRecord::Base
 
-	has_many :athletes
+  has_many :athletes
 
 end

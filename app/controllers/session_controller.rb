@@ -1,14 +1,14 @@
 
 class SessionController < ApplicationController
 
-	def index
-	  @meetings = Meeting.all(:order => :datum)
-	end
+  def index
+    @meetings = Meeting.all(:order => :datum)
+  end
 
-	def login
-	end
+  def login
+  end
 
-	def logout
-	end
+  def logout
+  end
 
 end
