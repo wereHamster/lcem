@@ -1,0 +1,8 @@
+
+<h2>Angemeldete Athleten</h2>
+<table>
+	<tr><th>Vorname</th><th>Nachname</th><th>Jahrgang</th><th>Gemeinde</th></tr>
+	<%- for a in @meeting.athletes.all(:order => :jahrgang) do -%>
+	<tr><td><%= a.vorname -%></td><td><%= a.nachname -%></td><td><%= a.jahrgang -%></td><td><%= a.gemeinde -%></td></tr>
+	<%- end -%>
+</table>

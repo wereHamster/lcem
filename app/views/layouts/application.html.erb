@@ -1,14 +1,27 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
 <head>
-  <title>Lcem</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>LC Emmenstrand Meetings</title>
+
+	<%= stylesheet_link_tag "screen" %>	
+	<%= javascript_include_tag "prototype", "effects", "controls", "application" %>
+
 </head>
+
 <body>
-
-<%= yield %>
-
+	<div id="root">
+		<div id="header">
+			<%= @title || "LC Emmenstrand Meetings" -%>
+			<a style="float:right" href="/">Hauptseite</a>
+		</div>
+		<div id="container">
+			<%= yield -%>
+		</div>
+		<div id="footer">
+			<p>Bei Fragen oder Korrekturen wenden sie sich an <a href="mailto:tom@dbservice.com">Tomas Carnecky</a></p>
+		</div>
+	</div>
 </body>
 </html>

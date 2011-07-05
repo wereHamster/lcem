@@ -1,0 +1,107 @@
+
+body {
+	font: 0.71em/1.5em Verdana,sans-serif;
+	color: #111;
+}
+
+#root {
+	position: relative;
+	padding: 0;
+	width: 550px;
+	margin: 0 auto;
+}
+
+#container {
+	margin: 5px 0 5px 0;
+	text-align: left;
+	min-height:200px;
+}
+
+#header {
+	padding-top: 12px;
+	font-size: 200%;
+	font-weight: bold;
+}
+
+#header a {
+	font-size: 14px;
+}
+
+#content {
+}
+
+#footer { 
+	text-align: center;
+	padding: 5px;
+}
+
+#footer p {
+	margin: 0;
+}
+
+form {
+	margin: 0;
+	padding: 10px;
+	text-align: left;
+}
+
+select {
+	width: 100%;
+}
+
+#submit-button {
+	text-align: center;
+}
+
+#submit input[type=submit] {
+	margin: 20px auto 10px auto;
+	width: 30%;
+	font-size: 160%;
+}
+
+th, td {
+	margin: 0;
+	padding: 0 0 0 20px;
+	text-align: left;
+}
+
+table {
+	width: 100%;
+	padding: 10px;
+	margin: 10px;
+}
+
+
+#error {
+	background: #fbb;
+	font-size: 120%;
+	font-weight: bold;
+	border: 3px solid #f00;
+	padding: 10px;
+}
+
+a {
+	color: green;
+}
+
+
+.meeting {
+	font-size:16px;
+	padding-top: 10px;
+}
+
+.meeting .date {
+	float:left;
+	width:160px;
+}
+
+.error {
+	padding:20px 0;
+	text-align:center;
+	border: 2px solid #c00;
+}
+
+.fieldWithErrors {
+	background:#c00;
+	padding:2px;
+}

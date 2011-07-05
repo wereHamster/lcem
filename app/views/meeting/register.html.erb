@@ -1,0 +1,13 @@
+
+<h1 style='text-align: center;'>Anmeldung erfolgreich</h1>
+
+<p><%= "#{@athlet.vorname} #{@athlet.nachname}" -%> wurde erfasst</p>
+<p>
+	Wir freuen uns, sie am <%= "#{@athlet.meeting.datum.day}. #{@athlet.meeting.datum.month}. #{@athlet.meeting.datum.year}" -%> in <%= @athlet.meeting.ort -%>
+	(<a href="http://maps.google.com/maps?ll=<%= @athlet.meeting.gps -%>">Google Maps</a>) begrüssen zu dürfen.
+</p>
+<p>
+	<%= link_to "Weitere Athleten erfassen", meeting_path(@athlet.meeting) -%>
+		oder
+	<%= link_to "Zurück zur Homepage", root_path -%>
+</p>
