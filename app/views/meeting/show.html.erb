@@ -4,7 +4,7 @@
 	<img src="/assets/images/<%= @meeting.banner -%>" style="max-width:100%" />
 </div>
 
-<p><%= @meeting.info -%></p>
+<p><%=raw @meeting.info -%></p>
 
 <%- form_for @athlet, :url => { :action => :register } do |f| -%>
 
