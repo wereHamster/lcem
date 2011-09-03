@@ -1,10 +1,10 @@
 <% require 'csv' %>
 <%=
 CSV.generate do |csv|
-  csv << ['Vorname', 'Nachname', 'Strasse', 'Gemeinde', 'Jahrgang', 'Geschlecht']
+  csv << ['Vorname', 'Nachname', 'Strasse', 'Gemeinde', 'Jahrgang', 'Geschlecht', 'Lizenz', 'Verein']
 
-  @meeting.athletes.each do |a|
-    csv << [a.vorname, a.nachname, a.strasse, a.gemeinde, a.jahrgang, a.geschlecht]
+  @meeting.athletes.order(:lizenz).each do |a|
+    csv << [a.vorname, a.nachname, a.strasse, a.gemeinde, a.jahrgang, a.geschlecht, a.lizenz, a.verein]
   end
 end
 %>
