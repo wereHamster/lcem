@@ -1,0 +1,10 @@
+<% require 'csv' %>
+<%=
+CSV.generate do |csv|
+  csv << ['Vorname', 'Nachname', 'Strasse', 'Gemeinde', 'Jahrgang', 'Geschlecht']
+
+  @meeting.athletes.each do |a|
+    csv << [a.vorname, a.nachname, a.strasse, a.gemeinde, a.jahrgang, a.geschlecht]
+  end
+end
+%>
