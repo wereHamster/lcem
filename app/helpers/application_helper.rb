@@ -1,8 +1,13 @@
 
 module ApplicationHelper
 
-  def text_field_ext(form, model, name)
-    form.text_field name, { :default => model.read_attribute(name), :size => 35 } 
+  def text_field_ext(form, model, name, default = nil)
+    attr = model.read_attribute(name)
+    if attr == nil || attr.empty?
+        attr = default
+    end
+
+    form.text_field name, { :value => attr, :size => 35 }
   end
 
 end

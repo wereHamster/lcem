@@ -5,6 +5,7 @@ class MeetingController < ApplicationController
     @meeting = Meeting.find(params[:id])
     @title = @meeting.name
     @athlet = Athlete.new
+    @verein = session[:verein]
   end
 
   def register
@@ -13,6 +14,8 @@ class MeetingController < ApplicationController
 
     @athlet = Athlete.create(params[:athlete])
     return render :action => :show if @athlet.invalid?
+
+    session[:verein] = @athlet.verein
 
     @athlet.meeting = @meeting
     @athlet.save!
