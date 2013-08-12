@@ -4,8 +4,14 @@ class MeetingController < ApplicationController
   def show
     @meeting = Meeting.find(params[:id])
     @title = @meeting.name
+  end
+
+  def anmeldung
+    @meeting = Meeting.find(params[:id])
+    @title = @meeting.name
     @athlet = Athlete.new
-    @verein = session[:verein]
+    @verein = params[:verein]
+    @athletes = @meeting.athletes.where(:verein => @verein)
   end
 
   def register
@@ -13,12 +19,14 @@ class MeetingController < ApplicationController
     @title = @meeting.name
 
     @athlet = Athlete.create(params[:athlete])
-    return render :action => :show if @athlet.invalid?
+    if @athlet.invalid?
+        render :action => :show
+    else
+        @athlet.meeting = @meeting
+        @athlet.save!
 
-    session[:verein] = @athlet.verein
-
-    @athlet.meeting = @meeting
-    @athlet.save!
+        redirect_to :action => :anmeldung, :verein => @athlet.verein
+    end
   end
 
   def export

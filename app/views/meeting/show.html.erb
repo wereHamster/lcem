@@ -6,52 +6,11 @@
 
 <p><%=raw @meeting.info -%></p>
 
-<%- form_for @athlet, :url => { :action => :register } do |f| -%>
-
-	<h2>Obligatorische Felder</h2>
-
-	Bitte füllen sie das Formular vollständig und korrekt aus.
-	<%- if false and not @athlet.errors.empty? -%>
-		<span style="color:red">
-			Ich versuche es noch einmal, diesmal in rot, hoffentlich liest es jemand dann: vollständig und korrekt.
-			Beachten sie dass Namen in der deutschen Sprache
-			immer noch gross geschrieben werden, auch im Internet! Die 'Umschalt' Taste ist links und rechts
-			auf ihrer Tastatur. Benutzen sie die ab und zu. Und schreiben sie sowohl die Postleitzahl wie auch den
-			Ortsnamen hin. Ich weise sie darauf hin
-			dass Postleitzahlen in der Schweiz vierstellig sind.
-		</span>
-	<%- end -%>
-
-	<table>
-		<tr><td>Vorname:</td><td>Nachname:</td></tr><tr>
-			<td><%= text_field_ext(f, @athlet, :vorname) -%></td>
-			<td><%= text_field_ext(f, @athlet, :nachname) -%></td>
-		</tr>
-		<tr><td>Strasse / Nr:</td><td>PLZ / Ort:</td></tr><tr>
-			<td><%= text_field_ext(f, @athlet, :strasse) -%></td>
-			<td><%= text_field_ext(f, @athlet, :gemeinde) -%></td>
-		</tr>
-		<tr><td>Geschlecht:</td><td>Jahrgang:</td></tr><tr>
-			<td><%= f.select(:geschlecht, options_for_select(Athlete::SEX, @athlet.geschlecht)) %></td>
-			<td><%= f.select(:jahrgang, (eval @meeting.jahrgang).to_a) %></td>
-		</tr>
-	</table>
-
-
-	<h2>Optionale Felder</h2>
-
-	    Wenn die Lizenznummer angegeben wird,
-	    werden die Resultate in der SLV Bestenliste berücksichtigt.
-			<table>
-			     <tr><td>Lizenznummer:</td><td>Verein:</td></tr><tr>
-			      <td><%= text_field_ext(f, @athlet, :lizenz) -%></td>
-			      <td><%= text_field_ext(f, @athlet, :verein, @verein) -%></td>
-			     </tr>
-			    </table>
-			
-<div id="submit-button">
-	<%= submit_tag 'Anmelden', :class => :classy %>
-</div>
-
-
+Zum Formular für
+<%= link_to "Einzelathleten", { :action => :anmeldung } %>
+oder
+<%= form_tag url_for({ :action => :anmeldung }), { :method => :get, :class => "verein-form" } do -%>
+    <%= label_tag(:verein, "Verein") %>
+    <%= text_field_tag(:verein) %>
+    <%= submit_tag("Weiter") %>
 <%- end -%>
